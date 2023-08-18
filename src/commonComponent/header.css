@@ -1,0 +1,271 @@
+@charset "utf-8";
+
+/* Header */
+#header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    cursor: pointer;
+    background: white;
+}
+.moblie_header_inner {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.moblie_header_inner .logo {
+    margin: 0 80px 0 106px;
+}
+.moblie_header_inner .logo img {
+    width: 112px;
+}
+.moblie_header_inner .search img {
+    width: 20px;
+}
+.pc_header_inner {
+    display: none;
+}
+
+/* ================== 햄버거 아이콘 ==================== */
+.header_line .hamburger {
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+}
+.hamburger #sideBar_open {
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    margin-top: -15px;
+    padding: 5px;
+    z-index: 2;
+    cursor: pointer;
+}
+.hamburger #sideBar_open .icon_menu {
+    position: relative;
+    width: 23px;
+    height: 18px;
+    border-top: 2px solid #999;
+    border-bottom: 2px solid #999;
+    background: 0;
+    display: inline-block;
+}
+.hamburger #sideBar_open .icon_menu::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -1px;
+    border-top: 2px solid #999;
+}
+/* ================== /햄버거 아이콘 ==================== */
+
+@media screen and (min-width:1024px){
+    /* Side MENU */
+    .side_cover {
+        display: none;
+    }
+    .moblie_header_inner {
+        display: none;
+    }
+
+    /* ======== PC Header ======== */
+    .pc_header_inner  {
+        display: block;
+    }
+    #header {
+        padding: 20px 0 0 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 1);
+        transition: all .3s;
+        cursor: pointer;
+    }
+    .w1440 {
+        width: 1440px;
+        margin: 0 auto;
+    }
+    .w1100 {
+        width: 1100px;
+        margin: 0 auto;
+    }
+    .pc_lnb {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        max-width: 1100px;
+        height: 78px;
+        justify-content: space-between;
+        color: black;
+        font-size: 15px;
+    }
+    .pc_lnb .language_select img {
+        padding: 3px 0 0 6px;
+    }
+    .pc_lnb .pc_logo {
+        position: absolute;
+        top: 0;
+        left: 35%;
+        z-index: 5;
+        display: table;
+        height: 60%;
+        width: 30%;
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: top;
+    }
+    .pc_lnb .pc_logo a {
+        display: table-cell;
+        width: 100%;
+        padding-top: 1px;
+        vertical-align: middle;
+    }
+    .pc_lnb .pc_logo img {
+        width: 166px;
+    }
+    .search_area span {
+        padding: 0 15px;
+        font-size: 15px;
+        line-height: 1.5;
+        position: relative;
+    }
+    .search_area span:nth-child(2):after {
+        content: '|';
+        display: inline-block;
+        position: absolute;
+        top: 42%;
+        left: -2px;
+        transform: translateY(-50%);
+    }
+    .search_area span:nth-child(3):before {
+        content: '|';
+        display: inline-block;
+        position: absolute;
+        top: 42%;
+        left: -2px;
+        transform: translateY(-50%);
+    }
+    .search_area span img {
+        margin-top: 3px;
+        width: 17px;
+        height: 17px;
+    }
+
+    /* ========= GNB MENU ========= */
+    .pc_nav {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 7%;
+    }
+    .pc_gnb_menu {
+        display: flex;
+        justify-content: space-between;
+        max-width: 772px;
+        margin: 0 auto;
+    }
+
+    .pc_gnb_menu .pc_nav_d1 {
+        color: #666;
+        font-size: 16px;
+    }
+    .hover_border {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        border-bottom: 1px solid #eaeaea;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+    #header:hover .d1_menu {
+        color: #666;
+    }
+
+    /* ===== 1depth MENU 호버시 css ===== */
+    .pc_nav_d1 .d1_menu {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 12px;
+    }
+    .pc_nav_d1 .d1_menu::after {
+        position: absolute;   
+        left: -2px;
+        right: -2px;
+        bottom: 0;
+        content: '';
+        height: 2px;
+        background: #000;
+        opacity: 0;
+        transition: opacity .3s linear;
+    }
+    .pc_nav_d1:hover .d1_menu::after {
+        opacity: 1;
+    }
+
+    /* ===== 2depth MENU css ===== */
+    .pc_nav_d2_box {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 3px 0;
+        background-color: #fff;
+    }
+    .pc_nav_d2_container {
+        max-width: 772px;
+        margin: 0 auto;
+        display: flex;
+        text-align: left;
+    }
+    .pc_nav_d2_container .pc_nav_d2 {
+        color: #888;
+        font-size: 15px;
+    }
+    .d2_box1, .d2_box2, .d2_box3, .d2_box4  {
+        justify-content: center;
+    }
+    .d2_box1 li, .d2_box2 li, .d2_box3 li, .d2_box4>.pc_nav_d2  {
+        padding: 9px 15px 6px;
+    }
+    .d2_box2 {
+        width: 400px;
+        transform: translateX(34%);
+    }
+    .d2_box3 {
+        width: 500px;
+        transform: translateX(37.5%);
+    }
+    .d2_box4 {
+        padding-top: 22px;
+        padding-bottom: 30px;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .d2_box4 .pc_nav_d2 {
+        font-size: 15px;
+        line-height: 2.5;
+        font-weight: 600;
+        color: black;
+    }
+    .pc_nav_d3_box .pc_nav_d3 a {
+        padding: 9px 15px 6px 0;
+        color: #888;
+    }
+    .pc_nav_d2:hover .d2_hover,
+    .pc_nav_d3 a:hover {
+        font-weight: bold;
+        color: black;
+    }
+}
